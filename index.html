@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Vue Slider</title>
+</head>
+<body>
+    <div id="root" class="container">
+        <div class="slider">
+            <i @click="changeprev" class="fas fa-angle-left prev"></i>
+            <div class="images">
+                <img :src="path + image[indexImage] + extension">
+            </div>
+            <i @click="changenext" class="fas fa-angle-right next"></i>
+            <div class="point">
+                <i @click="clickCircle(indexCircle)" :class="(indexCircle == indexImage) ? 'active' : null" v-for="(circle, indexCircle) in image" class="fas fa-circle"></i>
+            </div>
+        </div>
+        <div class="player">
+            <i @click="startPlay" v-if="play" class="far fa-play-circle"></i>
+            <i @click="stopPlay" v-else class="far fa-pause-circle"></i>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
